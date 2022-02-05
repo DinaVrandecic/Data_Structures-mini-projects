@@ -1,0 +1,7 @@
+Bogota 6582456
+Neiva 359452
+Bello 359452
+Cali 2365417
+Cali 2000000
+Medellin 2569842
+Cucuta 566987
