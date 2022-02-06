@@ -1,0 +1,6 @@
+Berlin 3500000
+Hamburg 1700000
+Bremen  548477
+Dresden 1200000
+Leipzig  510651
+Frankfurt 2300000
