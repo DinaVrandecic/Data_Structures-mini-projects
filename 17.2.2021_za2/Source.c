@@ -19,7 +19,7 @@ pozicija Inicijalizacija(pozicija p);
 int ProcitajDatoteku(pozicija p, char* dat);
 int UnesiUListu(pozicija p, char* ime, char* prezime, char* kafic);
 int Ispis(pozicija p);
-int Pretraga(pozicija head, char *kafic);
+int Pretraga(pozicija head, char* kafic);
 int brisi(pozicija p);
 
 int main()
@@ -40,7 +40,7 @@ int main()
 	while (x)
 	{
 		scanf(" %c", &ch);
-		switch (ch) 
+		switch (ch)
 		{
 		case '1':
 			printf("\nUpisi ime kafica: ");
@@ -75,7 +75,7 @@ pozicija Inicijalizacija(pozicija p)
 int ProcitajDatoteku(pozicija p, char* dat)
 {
 	FILE* file = NULL;
-	char ime[max] = { 0 },prezime[max] = { 0 },kafic[max] = { 0 };
+	char ime[max] = { 0 }, prezime[max] = { 0 }, kafic[max] = { 0 };
 
 	file = fopen(dat, "r");
 	if (file == NULL)
@@ -125,15 +125,16 @@ int Ispis(pozicija p)
 int Pretraga(pozicija p, char* kafic)
 {
 	int brojac = 0;
+	p = p->next;
 
-	while (p->next != NULL)
+	while (p != NULL)
 	{
 		if (strcmp(p->kafic, kafic) == 0)
 		{
 			printf("%s %s\n", p->ime, p->prezime);
 			brojac++;
 		}
-			p = p->next;
+		p = p->next;
 	}
 
 	printf("\nBroj ljudi koji su bili u kaficu %s je %d.\n", kafic, brojac);
