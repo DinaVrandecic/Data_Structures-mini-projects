@@ -1,0 +1,11 @@
+pica sprite 6
+pica kola 10
+voce sljiva 7
+kruh francuz 5
+grickalice smoki 15
+kruh skrovada 2
+pica fanta 20
+grickalice nachosi 13
+voce babana 4
+pica fanta 10
+voce jabuka 36
