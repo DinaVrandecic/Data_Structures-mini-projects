@@ -30,6 +30,7 @@ StabloPozicija UnesiUStablo(StabloPozicija S, char* ime, char*  prezime,int bodo
 StabloPozicija RelativniBodovi(StabloPozicija S, int *suma, StabloPozicija maks);
 StabloPozicija IzracunSume(StabloPozicija S, int *suma);
 StabloPozicija TraziMax(StabloPozicija S);
+StabloPozicija brisi(StabloPozicija S);
 int inorder(StabloPozicija S);
 int preorder(StabloPozicija S);
 
@@ -46,6 +47,7 @@ int main()
 	maks = TraziMax(root);
 	root=RelativniBodovi(root, &suma, maks);
 	preorder(root);
+	root =brisi(root);
 	return 0;
 }
 
@@ -162,4 +164,15 @@ StabloPozicija TraziMax(StabloPozicija S)
 		return S;
 	else
 		return TraziMax(S->D);
+}
+
+StabloPozicija brisi(StabloPozicija S)
+{
+	if (S != NULL)
+	{
+		brisi(S->L);
+		brisi(S->D);
+		free(S);
+	}
+	return NULL;
 }
