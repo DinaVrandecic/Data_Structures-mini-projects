@@ -33,6 +33,8 @@ int Ispis_ljudi(LjudiPozicija p);
 int Trazi(KaficiPozicija p, char* kafic);
 KaficiPozicija TraziIstog(KaficiPozicija p, char* kafic);
 LjudiPozicija UnesiLjude(LjudiPozicija p, char* ime, char* prezime);
+int brisi_kafice(KaficiPozicija p);
+int brisi_ljude(LjudiPozicija p);
 
 int main()
 {
@@ -43,6 +45,7 @@ int main()
 
 	ProcitajDatoteku(kafic_head, dat);
 	Ispis_kafici(kafic_head->next);
+	brisi_kafice(kafic_head);
 	return 0;
 }
 
@@ -180,4 +183,28 @@ KaficiPozicija TraziIstog(KaficiPozicija p, char* kafic)
 		p = p->next;
 	}
 	return NULL;
+}
+
+int brisi_kafice(KaficiPozicija p)
+{
+	KaficiPozicija q = NULL;
+	while (p->next != NULL)
+	{
+		q = p->next;
+		brisi_ljude(q->ljudi);
+		p->next = p->next->next;
+		free(q);
+	}
+	return 0;
+}
+int brisi_ljude(LjudiPozicija p)
+{
+	LjudiPozicija q = NULL;
+	while (p->next != NULL)
+	{
+		q = p->next;
+		p->next = p->next->next;
+		free(q);
+	}
+	return 0;
 }
